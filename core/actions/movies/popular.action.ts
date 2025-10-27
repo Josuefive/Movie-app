@@ -4,7 +4,7 @@ import { MovieMapper } from "@/infrastructure/mapper/movi.mapper";
 
 export const  popularMoviesAction = async() => {
     try {
-    const {data} =  await movieApi.get<MovieDBMoviesResponse>('/pupular')
+   const {data} =  await movieApi.get<MovieDBMoviesResponse>('/popular')
 
     // console.log(JSON.stringify(data, null, 2));
 

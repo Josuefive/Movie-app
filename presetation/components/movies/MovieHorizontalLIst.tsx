@@ -4,21 +4,25 @@ import { FlatList, Text, View } from 'react-native';
 import MoviePoster from './MoviePoster';
 
 interface props {
+    title?: string
     movies: Movie[];
     
 }
 
-const MovieHorizontalLIst = ({movies}: props) => {
+const MovieHorizontalLIst = ({movies, title}: props) => {
   return (
     <View>
-      <Text className='text-2xl font-bold px-4'>Populares</Text>
+    {
+        title && <Text className='text-3xl font-bold px-4 mb-2'>{title}</Text>
+    }
         <FlatList
             horizontal
             data = {movies}
+            showsHorizontalScrollIndicator = {false}
             keyExtractor={(item) => `${item.id}`}
             renderItem={({item}) => <MoviePoster id= {item.id} 
-            poster={item.poster}
-            
+           poster={item.poster}
+            smallPoster
             />}
         />
     </View>

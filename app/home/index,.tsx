@@ -9,7 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const HomeScreen = () => {
     const safeArea = useSafeAreaInsets();
     const {nowPlayingQuery, popularQuery} = useMovie();
-if (nowPlayingQuery.isLoading){
+if (nowPlayingQuery.isLoading || popularQuery.isLoading){
     return (
         <View className='justify-center items-center flex-1'>
             <ActivityIndicator
@@ -21,14 +21,14 @@ if (nowPlayingQuery.isLoading){
 }
     
     return (
-        <View className='m-t2' style={{paddingTop: safeArea.top}}>
+        <View className='mt-2' style={{paddingTop: safeArea.top}}>
             <Text
             className='text-3xl font-bold px-4 mb-2'>Peliculas Tendencias</Text>
             {/* Carusel de imagenes */}
             <MainSlideshow movies={nowPlayingQuery.data ?? []}/>
 
             {/* popular */}
-            <MovieHorizontalLIst movies={popularQuery.data ?? []}/>
+           <MovieHorizontalLIst title='populares' movies={popularQuery.data ?? []}/>
         </View>
     )
 }
