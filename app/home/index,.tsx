@@ -3,7 +3,7 @@ import MainSlideshow from '@/presetation/components/MainSlideshow';
 import MovieHorizontalLIst from '@/presetation/components/movies/MovieHorizontalLIst';
 import { useMovie } from '@/presetation/hooks/useMovies';
 import React from 'react';
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StatusBar, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
@@ -23,8 +23,9 @@ if (nowPlayingQuery.isLoading || popularQuery.isLoading){
     return (
     <ScrollView>
         <View className='mt-4' style={{paddingTop: safeArea.top}}>
+            <StatusBar barStyle= "dark-content"/>
             <Text
-            className='text-3xl font-bold px-4'>Peliculas Tendencias</Text>
+            className='text-3xl font-bold px-4 e'>Peliculas Tendencias</Text>
             {/* Carusel de imagenes */}
             <MainSlideshow movies={nowPlayingQuery.data ?? []}/>
 

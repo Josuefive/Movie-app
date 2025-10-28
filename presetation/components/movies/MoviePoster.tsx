@@ -15,7 +15,7 @@ const MoviePoster = ({id,poster, smallPoster = false, className}:props) => {
     >
       <Image
         source={{uri: poster}}
-        className='shadow-lg rounded-2xl w-full h-full'
+        className='shadow-lg rounded-2xl w-full h-full mx-2 '
         style = {{
             width: smallPoster ? 85: 150,
             height: smallPoster ? 130: 250
