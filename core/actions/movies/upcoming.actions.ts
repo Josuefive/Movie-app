@@ -2,9 +2,9 @@ import { movieApi } from "@/core/api/movie-api";
 import { MovieDBMoviesResponse } from "@/infrastructure/interface/moviedb-response";
 import { MovieMapper } from "@/infrastructure/mapper/movi.mapper";
 
-export const nowPlayingAction = async() => {
+export const upcomingMoviesAction = async() => {
     try {
-   const { data } = await movieApi.get<MovieDBMoviesResponse>( '/now_playing' );
+   const {data} =  await movieApi.get<MovieDBMoviesResponse>('/upcoming')
 
     // console.log(JSON.stringify(data, null, 2));
 
@@ -13,9 +13,9 @@ export const nowPlayingAction = async() => {
         
     // console.log(movies)
 
-        return movies
+      return movies
     } catch (error) {
         console.log(error);
-        throw 'cannot load now playing movies'
+        throw 'cannot load top_rated movies'
     }
 }

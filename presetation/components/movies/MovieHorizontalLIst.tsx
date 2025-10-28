@@ -6,24 +6,22 @@ import MoviePoster from './MoviePoster';
 interface props {
     title?: string
     movies: Movie[];
+    className?: string;
     
 }
 
-const MovieHorizontalLIst = ({movies, title}: props) => {
+const MovieHorizontalLIst = ({movies, title, className}: props) => {
   return (
-    <View>
+    <View className= { `${className}`}>
     {
         title && <Text className='text-3xl font-bold px-4 mb-2'>{title}</Text>
     }
         <FlatList
-            horizontal
+            horizontal = {true}
             data = {movies}
             showsHorizontalScrollIndicator = {false}
             keyExtractor={(item) => `${item.id}`}
-            renderItem={({item}) => <MoviePoster id= {item.id} 
-           poster={item.poster}
-            smallPoster
-            />}
+            renderItem={({item}) => <MoviePoster id={item.id} poster= {item.poster}  smallPoster/> }
         />
     </View>
   )
